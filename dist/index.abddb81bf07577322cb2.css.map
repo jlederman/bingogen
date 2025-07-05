@@ -1,0 +1,1 @@
+{"version":3,"file":"index.abddb81bf07577322cb2.css","mappings":"AAAA,EAGC,qBAAsB,CAFtB,QAAS,CACT,SAED","sources":["webpack://bingogen/./src/css/index.less"],"sourcesContent":["* {\n\tmargin: 0;\n\tpadding: 0;\n\tbox-sizing: border-box;\n}"],"names":[],"sourceRoot":""}

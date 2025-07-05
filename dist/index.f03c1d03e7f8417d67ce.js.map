@@ -1,0 +1,1 @@
+{"version":3,"file":"index.f03c1d03e7f8417d67ce.js","mappings":"mBAEAA,QAAQC,IAAI,Q","sources":["webpack://bingogen/./src/js/index.js"],"sourcesContent":["import '../css/index.less';\n\nconsole.log('hello')"],"names":["console","log"],"sourceRoot":""}
