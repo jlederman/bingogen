@@ -33,19 +33,6 @@ function generateBingoCards(inputs, cardCount) {
 
 function createUI() {
     const app = document.getElementById('app');
-    app.innerHTML = `
-    <form id="bingo-form">
-      <div id="inputs" class="grid-input"></div>
-      <label>Card Title:
-        <input type="text" id="card-title" placeholder="My Bingo Card" maxlength="50" />
-      </label>
-      <label>Number of Cards:
-        <input type="number" id="card-count" value="1" min="1" max="100" />
-      </label>
-      <button type="submit">Generate Cards</button>
-    </form>
-    <div id="cards-output"></div>
-  `;
     const toggleBtn = document.createElement('button');
     toggleBtn.type = 'button';
     toggleBtn.id = 'toggle-inputs';
@@ -125,75 +112,74 @@ function createUI() {
 
                 const printWindow = window.open('', '_blank');
                 printWindow.document.write(`
-          <html>
-            <head>
-              <title>Bingo Card</title>
-              <style>
-                <style>
-                  @page {
-                    size: 8.5in 11in;
-                    margin: 1in;
-                  }
+                    <html>
+                        <head>
+                        <title>Bingo Card</title>
+                        <style>
+                            @page {
+                                size: 8.5in 11in;
+                                margin: 0.75in;
+                            }
 
-                  body {
-                    font-family: sans-serif;
-                    margin: 0;
-                    padding: 0;
-                    display: flex;
-                    justify-content: center;
-                    align-items: center;
-                    height: 100vh;
-                  }
+                            body {
+                                margin: 0;
+                                padding: 0;
+                                font-family: sans-serif;
+                                display: flex;
+                                justify-content: center;
+                                align-items: flex-start;
+                            }
 
-                  .card {
-                    width: 100%;
-                    max-width: 7.5in;
-                    aspect-ratio: 1 / 1;
-                    display: flex;
-                    flex-direction: column;
-                    align-items: center;
-                    padding: 1rem;
-                    box-sizing: border-box;
-                    page-break-inside: avoid;
-                  }
+                            .card {
+                                width: 100%;
+                                max-width: 7in;
+                                height: auto;
+                                page-break-after: always;
+                                border: 1px solid #000;
+                                padding: 0.5in;
+                                box-sizing: border-box;
+                                display: flex;
+                                flex-direction: column;
+                                align-items: center;
+                            }
 
-                  .card h3 {
-                    margin-top: 0;
-                    margin-bottom: 1rem;
-                    font-size: 1.25rem;
-                  }
+                            .card h3 {
+                                margin: 0 0 1rem;
+                                font-size: 1.25rem;
+                            }
 
-                  .card-grid {
-                    display: grid;
-                    grid-template-columns: repeat(5, 1fr);
-                    gap: 0.25rem;
-                    width: 100%;
-                    height: 100%;
-                  }
+                            .card-grid {
+                                display: grid;
+                                grid-template-columns: repeat(5, 1fr);
+                                gap: 0.2rem;
+                                width: 100%;
+                                aspect-ratio: 1 / 1;
+                            }
 
-                  .cell {
-                    border: 1px solid #333;
-                    display: flex;
-                    align-items: center;
-                    justify-content: center;
-                    font-weight: bold;
-                    font-size: 0.85rem;
-                    padding: 0.5rem;
-                    aspect-ratio: 1 / 1;
-                    text-align: center;
-                    overflow: hidden;
-                    text-overflow: ellipsis;
-                    white-space: nowrap;
-                  }
+                            .cell {
+                                border: 1px solid #333;
+                                display: flex;
+                                align-items: center;
+                                justify-content: center;
+                                font-weight: bold;
+                                text-align: center;
+                                font-size: 0.8rem;
+                                padding: 0.25rem;
+                                word-break: break-word;
+                                white-space: normal;
+                                overflow: hidden;
+                                aspect-ratio: 1 / 1;
+                            }
 
-                  button {
-                    display: none;
-                  }
-              </style>
-            </head>
-            <body></body>
-          </html>
-        `);
+                            button {
+                                display: none;
+                            }
+                            </style>
+
+                        </head>
+                        <body></body>
+                    </html>
+                    `);
 
                 printWindow.document.body.appendChild(clone);
                 printWindow.document.close();
